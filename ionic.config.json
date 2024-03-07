@@ -1,0 +1,7 @@
+{
+    "name": "My Finances Planner App",
+    "integrations": {
+        "capacitor": {}
+    },
+    "type": "vue-vite"
+}
