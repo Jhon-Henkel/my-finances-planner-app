@@ -4,12 +4,17 @@ import {RouteRecordRaw} from 'vue-router';
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
-        redirect: '/home'
+        redirect: '/inicio'
     },
     {
-        path: '/home',
+        path: '/inicio',
         name: 'Home',
         component: () => import('@/views/home/HomePage.vue')
+    },
+    {
+        path: '/movimentacoes',
+        name: 'Movements',
+        component: () => import('@/views/movements/MovementsPage.vue')
     }
 ]
 
