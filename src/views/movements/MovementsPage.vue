@@ -12,13 +12,31 @@ import {
     IonItemSliding,
     IonItemOptions,
     IonActionSheet,
-    IonAlert
 } from "@ionic/vue";
 import {ellipsisHorizontal} from 'ionicons/icons';
 import {ref} from "vue";
 import MfpMovementDetailsCard from "@/components/movements/MfpMovementDetailsCard.vue";
 import MfpMovementListItem from "@/components/movements/MfpMovementListItem.vue";
+import MfpFilterModal from "@/components/filter/MfpFilterModal.vue";
 
+const movementTypes = [
+    {
+        value: 1,
+        label: 'Receitas'
+    },
+    {
+        value: 2,
+        label: 'Despesas'
+    },
+    {
+        value: 3,
+        label: 'Transferências'
+    },
+    {
+        value: 4,
+        label: 'Todos'
+    }
+]
 const movements = [
     {
         icon: 'arrow-down-circle',
@@ -84,22 +102,18 @@ const actionSheetButtons = [
         },
     },
 ]
-const setOptionsOpen = (state: boolean) => {isOpen.value = state}
-const filterInputs = [
-    {
-        type: "text",
-    },
-    {
-        type: 'text',
-
-    },
-]
+const setOptionsOpen = (state: boolean) => {
+    isOpen.value = state
+}
 
 function optionsAction(event: any) {
     setOptionsOpen(false)
     console.log(JSON.stringify(event.detail?.data?.action, null, 2))
     console.log("desenvolver")
 }
+
+const filter = ref('')
+
 </script>
 
 <template>
@@ -109,11 +123,7 @@ function optionsAction(event: any) {
             <ion-list>
                 <ion-list-header>
                     <ion-label>Movimentações</ion-label>
-                    <ion-button class="ion-no-padding" id="filter">
-                        <ion-icon name="filter-circle-outline" color="success" class="top-icon"/>
-                    </ion-button>
-                    <!-- todo desenvolver campos -->
-                    <ion-alert trigger="filter" header="Filtrar" :buttons="['Buscar']" :inputs="filterInputs" />
+                    <mfp-filter-modal :items="movementTypes" @filter-changed="filter = $event"/>
                     <ion-button class="ion-no-padding ion-margin-end">
                         <ion-icon name="add-circle" color="success" class="top-icon"/>
                     </ion-button>
