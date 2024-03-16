@@ -17,11 +17,11 @@ export default [
     {
         icon: 'cash-outline',
         routeName: 'Home',
-        label: 'Ganhos Futuros'
+        label: 'Receitas Futuras'
     },
     {
         icon: 'wallet-outline',
-        routeName: 'Home',
+        routeName: 'Accounts',
         label: 'Contas'
     },
     {
