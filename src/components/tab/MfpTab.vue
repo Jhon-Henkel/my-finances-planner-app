@@ -1,8 +1,16 @@
 <script setup lang="ts">
 import {IonTabBar, IonTabButton, IonTabs, IonIcon, IonPage, IonRouterOutlet, IonModal} from '@ionic/vue';
+import MfpMenuModalItem from "@/components/tab/MfpMenuModalItem.vue";
+import {ref} from "vue";
+import MenuItems from "@/settings/menuItems";
 
 const modalBreakpoints: Array<number> = [0, 0.85];
+const modal = ref();
 
+function closeModal() {
+    modal.value.$el.dismiss();
+
+}
 </script>
 
 <template>
@@ -19,12 +27,16 @@ const modalBreakpoints: Array<number> = [0, 0.85];
                 <ion-tab-button tab="add" id="mfp-tab-plus-modal" expand="block">
                     <ion-icon name="add-outline" />
                 </ion-tab-button>
+                <ion-tab-button tab="settings" href="/inicio">
+                    <ion-icon name="settings-outline" />
+                </ion-tab-button>
                 <ion-tab-button tab="menu" id="mfp-tab-menu-modal" expand="block">
                     <ion-icon name="menu-outline" />
                 </ion-tab-button>
             </ion-tab-bar>
         </ion-tabs>
 
+        <!-- Adicionar -->
         <ion-modal
             trigger="mfp-tab-plus-modal"
             :initial-breakpoint="modalBreakpoints[1]"
@@ -39,9 +51,16 @@ const modalBreakpoints: Array<number> = [0, 0.85];
             :initial-breakpoint="modalBreakpoints[1]"
             :breakpoints="modalBreakpoints"
             handle-behavior="cycle"
+            ref="modal"
         >
-            <!-- todo desenvolver itens do menu -->
-            <h1 class="ion-text-center">Desenvolver o menu</h1>
+            <div class="ion-padding-start ion-padding-end">
+                <h1 class="ion-text-center ion-padding-top">Menu</h1>
+                <div v-for="item in MenuItems" class="ion-padding-top">
+                    <mfp-menu-modal-item :icon="item.icon" :route-name="item.routeName" @go-to-route="closeModal">
+                        {{ item.label }}
+                    </mfp-menu-modal-item>
+                </div>
+            </div>
         </ion-modal>
     </ion-page>
 </template>
