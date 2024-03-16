@@ -13,8 +13,10 @@ import '@ionic/vue/css/text-transformation.css'
 import '@ionic/vue/css/flex-utils.css'
 import '@ionic/vue/css/display.css'
 import './theme/variables.css'
+import moneyMask from './directives/mask/money/moneyMask'
 
 const app = createApp(App)
+    .directive('money', moneyMask)
     .use(IonicVue)
     .use(router);
 
