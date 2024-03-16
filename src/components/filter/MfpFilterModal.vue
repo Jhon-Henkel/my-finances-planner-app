@@ -6,7 +6,6 @@ import {
     IonIcon,
     IonItem,
     IonSelect,
-    IonList,
     IonSelectOption,
 } from '@ionic/vue';
 import {ref} from "vue";

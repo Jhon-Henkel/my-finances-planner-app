@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { IonTabBar, IonTabButton, IonTabs, IonIcon, IonPage, IonRouterOutlet } from '@ionic/vue';
+import {IonTabBar, IonTabButton, IonTabs, IonIcon, IonPage, IonRouterOutlet, IonModal} from '@ionic/vue';
+
+const modalBreakpoints: Array<number> = [0, 0.85];
+
 </script>
 
 <template>
@@ -13,16 +16,33 @@ import { IonTabBar, IonTabButton, IonTabs, IonIcon, IonPage, IonRouterOutlet } f
                 <ion-tab-button tab="movements" href="/movimentacoes">
                     <ion-icon name="swap-horizontal-outline"/>
                 </ion-tab-button>
-                <!-- todo desenvolver opções de inserir novo (transação, despesa, ganho, etc...) -->
-                <ion-tab-button tab="add">
+                <ion-tab-button tab="add" id="mfp-tab-plus-modal" expand="block">
                     <ion-icon name="add-outline" />
                 </ion-tab-button>
-                <!-- todo desenvolver menu -->
-                <ion-tab-button tab="menu">
+                <ion-tab-button tab="menu" id="mfp-tab-menu-modal" expand="block">
                     <ion-icon name="menu-outline" />
                 </ion-tab-button>
             </ion-tab-bar>
         </ion-tabs>
+
+        <ion-modal
+            trigger="mfp-tab-plus-modal"
+            :initial-breakpoint="modalBreakpoints[1]"
+            :breakpoints="modalBreakpoints"
+            handle-behavior="cycle"
+        >
+            <!-- todo aqui talvez teremos problemas, pois os inserts também são modais-->
+            <h1 class="ion-text-center">Desenvolver o adicionar</h1>
+        </ion-modal>
+        <ion-modal
+            trigger="mfp-tab-menu-modal"
+            :initial-breakpoint="modalBreakpoints[1]"
+            :breakpoints="modalBreakpoints"
+            handle-behavior="cycle"
+        >
+            <!-- todo desenvolver itens do menu -->
+            <h1 class="ion-text-center">Desenvolver o menu</h1>
+        </ion-modal>
     </ion-page>
 </template>
 
