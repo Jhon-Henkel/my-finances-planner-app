@@ -108,6 +108,7 @@ const setOptionsOpen = (state: boolean) => {
 
 function optionsAction(event: any) {
     // todo desenvolver ações de editar e deletar
+    // todo desenvolver ações de editar e deletar
     setOptionsOpen(false)
     console.log(JSON.stringify(event.detail?.data?.action, null, 2))
     console.log("desenvolver")
