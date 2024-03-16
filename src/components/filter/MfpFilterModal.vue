@@ -43,11 +43,11 @@ function filter() {
 </script>
 
 <template>
-    <ion-button class="ion-no-padding" id="open-modal" expand="block">
+    <ion-button class="ion-no-padding" id="mfp-filter-modal" expand="block">
         <ion-icon name="filter-circle-outline" color="success" class="top-icon"/>
     </ion-button>
     <ion-modal
-        trigger="open-modal"
+        trigger="mfp-filter-modal"
         :initial-breakpoint="0.65"
         :breakpoints="[0, 0.65, 0.85]"
         handle-behavior="cycle"

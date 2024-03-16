@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {
-    IonButton,
     IonContent,
     IonIcon,
     IonLabel,
@@ -18,6 +17,7 @@ import {ref} from "vue";
 import MfpMovementDetailsCard from "@/components/movements/MfpMovementDetailsCard.vue";
 import MfpMovementListItem from "@/components/movements/MfpMovementListItem.vue";
 import MfpFilterModal from "@/components/filter/MfpFilterModal.vue";
+import MfpMovementFormModal from "@/components/movements/MfpInsertMovementModal.vue";
 
 const movementTypes = [
     {
@@ -107,6 +107,7 @@ const setOptionsOpen = (state: boolean) => {
 }
 
 function optionsAction(event: any) {
+    // todo desenvolver ações de editar e deletar
     setOptionsOpen(false)
     console.log(JSON.stringify(event.detail?.data?.action, null, 2))
     console.log("desenvolver")
@@ -119,14 +120,11 @@ const filter = ref('')
 <template>
     <ion-page>
         <ion-content :fullscreen="true">
-            <!-- todo ação de cadastrar (botão +) usar modal do ionic -->
             <ion-list>
                 <ion-list-header>
                     <ion-label>Movimentações</ion-label>
                     <mfp-filter-modal :items="movementTypes" @filter-changed="filter = $event"/>
-                    <ion-button class="ion-no-padding ion-margin-end">
-                        <ion-icon name="add-circle" color="success" class="top-icon"/>
-                    </ion-button>
+                    <mfp-movement-form-modal/>
                 </ion-list-header>
                 <ion-searchbar :animated="true" placeholder="Buscar por conta ou descrição"/>
                 <mfp-movement-details-card>
@@ -148,9 +146,3 @@ const filter = ref('')
         </ion-content>
     </ion-page>
 </template>
-
-<style scoped>
-.top-icon {
-    font-size: 1.8em;
-}
-</style>
