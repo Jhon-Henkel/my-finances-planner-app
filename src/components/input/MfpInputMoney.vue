@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {IonInput} from "@ionic/vue";
-import { ref } from "vue";
-import { unformat } from "@/directives/mask/money/util.js";
+import {IonInput} from "@ionic/vue"
+import { ref } from "vue"
+import { unformat } from "@/directives/mask/money/util.js"
 
 const value = ref();
 const emits = defineEmits(['input-money'])

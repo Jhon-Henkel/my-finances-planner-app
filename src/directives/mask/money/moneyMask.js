@@ -2,7 +2,7 @@ import { format, setCursor, event } from './util'
 import assign from './assign'
 import defaults from './options'
 
-export default function(element, binding) {
+function moneyMask(element, binding) {
     if (!binding.value) return
     const option = assign(defaults, binding.value)
     if (element.tagName.toLocaleUpperCase() !== 'INPUT') {
@@ -26,3 +26,5 @@ export default function(element, binding) {
     element.oninput()
     element.dispatchEvent(event('input'))
 }
+
+export default moneyMask;
