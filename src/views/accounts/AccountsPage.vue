@@ -11,7 +11,7 @@ import {
     IonText,
     IonCol,
     IonRow,
-    IonGrid
+    IonGrid, IonLabel, IonList, IonListHeader
 } from "@ionic/vue";
 import MfpAccountsBalance from "@/components/accounts/MfpAccountsBalance.vue";
 import {ellipsisHorizontal} from "ionicons/icons";
@@ -73,22 +73,23 @@ function optionsAction(event: any) {
     <ion-page>
         <ion-content :fullscreen="true">
             <div id="top-content" class="top-content">
-                <mfp-accounts-balance>
-                    <ion-text :color="balance < 0 ? 'danger' : ''">
-                        {{ balance }}
-                    </ion-text>
-                </mfp-accounts-balance>
-            </div>
-            <ion-grid>
-                <ion-row>
-                    <ion-col size="10">
-                        <ion-searchbar :animated="true" placeholder="Buscar por conta"/>
-                    </ion-col>
-                    <ion-col size="1">
+                <ion-grid>
+                    <ion-list-header>
+                        <ion-label>Contas</ion-label>
                         <mfp-new-account-form-modal />
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
+                    </ion-list-header>
+                    <ion-row id="balance">
+                        <ion-col>
+                            <mfp-accounts-balance>
+                                <ion-text :color="balance < 0 ? 'danger' : ''">
+                                    {{ balance }}
+                                </ion-text>
+                            </mfp-accounts-balance>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+            <ion-searchbar :animated="true" placeholder="Buscar por conta"/>
             <ion-item-sliding v-for="account in accounts" class="ion-text-center">
                 <mfp-account-list-item :account="account"/>
                 <ion-item-options side="end">
@@ -108,9 +109,6 @@ function optionsAction(event: any) {
     border-radius: 0 0 18px 18px;
     background: #0e1b25;
     height: 22%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 ion-content {
     position: relative;

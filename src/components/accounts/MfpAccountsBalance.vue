@@ -5,13 +5,13 @@ import {IonCol, IonGrid, IonRow, IonText} from "@ionic/vue";
 <template>
     <ion-grid>
         <ion-row>
-            <ion-col class="ion-text-center balance-value">
-                <slot/>
+            <ion-col class="ion-text-center balance-text">
+                <ion-text>Saldo total</ion-text>
             </ion-col>
         </ion-row>
         <ion-row>
-            <ion-col class="ion-text-center balance-text">
-                <ion-text>Saldo total</ion-text>
+            <ion-col class="ion-text-center balance-value">
+                <slot/>
             </ion-col>
         </ion-row>
     </ion-grid>

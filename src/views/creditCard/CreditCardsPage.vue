@@ -91,7 +91,7 @@ const isOpen = ref(false)
         <ion-content :fullscreen="true">
             <ion-list>
                 <ion-list-header>
-                    <ion-label>Movimentações</ion-label>
+                    <ion-label>Cartões de crédito</ion-label>
                     <mfp-insert-credit-card-modal/>
                 </ion-list-header>
             </ion-list>
