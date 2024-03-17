@@ -7,6 +7,16 @@ const value = ref();
 const emits = defineEmits(['input-money'])
 const inputOptions = {prefix: '', suffix: '', thousands: '.', decimal: ',', precision: 2}
 
+defineProps(
+    {
+        label: {
+            type: String,
+            default: 'Valor (R$)',
+            required: false
+        }
+    }
+)
+
 function changeValue(event: any) {
     emits('input-money', unformat(event.target.value, inputOptions.precision))
 }
@@ -17,7 +27,7 @@ function changeValue(event: any) {
         ref="value"
         type="text"
         fill="solid"
-        label="Valor (R$)"
+        :label="label"
         label-placement="floating"
         @change="changeValue"
         v-money="inputOptions"

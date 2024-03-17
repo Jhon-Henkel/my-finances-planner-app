@@ -22,7 +22,12 @@ const routes: Array<RouteRecordRaw> = [
                 path: '/contas',
                 name: 'Accounts',
                 component: () => import('@/views/accounts/AccountsPage.vue')
-            }
+            },
+            {
+                path: '/cartoes',
+                name: 'Cards',
+                component: () => import('@/views/creditCard/CreditCardsPage.vue')
+            },
         ]
     }
 ]

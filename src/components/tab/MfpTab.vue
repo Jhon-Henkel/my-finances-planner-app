@@ -36,7 +36,6 @@ function closeModal() {
             </ion-tab-bar>
         </ion-tabs>
 
-        <!-- Adicionar -->
         <ion-modal
             trigger="mfp-tab-plus-modal"
             :initial-breakpoint="modalBreakpoints[1]"

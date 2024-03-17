@@ -26,7 +26,7 @@ export default [
     },
     {
         icon: 'card-outline',
-        routeName: 'Home',
+        routeName: 'Cards',
         label: 'Cartões'
     },
     {
