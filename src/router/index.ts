@@ -28,6 +28,21 @@ const routes: Array<RouteRecordRaw> = [
                 name: 'Cards',
                 component: () => import('@/views/creditCard/CreditCardsPage.vue')
             },
+            {
+                path: '/configuracoes',
+                name: 'Settings',
+                component: () => import('@/views/settings/SettingsPage.vue')
+            },
+            {
+                path: '/lucros-futuros',
+                name: 'FutureProfits',
+                component: () => import('@/views/futureProfits/FutureProfitsPage.vue')
+            },
+            {
+                path: '/balanco-mensal',
+                name: 'MonthlyBalance',
+                component: () => import('@/views/monthlyBalance/MonthlyBalancePage.vue')
+            }
         ]
     }
 ]

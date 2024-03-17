@@ -27,7 +27,7 @@ function closeModal() {
                 <ion-tab-button tab="add" id="mfp-tab-plus-modal" expand="block">
                     <ion-icon name="add-outline" />
                 </ion-tab-button>
-                <ion-tab-button tab="settings" href="/inicio">
+                <ion-tab-button tab="settings" href="/configuracoes">
                     <ion-icon name="settings-outline" />
                 </ion-tab-button>
                 <ion-tab-button tab="menu" id="mfp-tab-menu-modal" expand="block">

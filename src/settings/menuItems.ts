@@ -5,9 +5,9 @@ export default [
         label: 'Inicio'
     },
     {
-        icon: 'map-outline',
-        routeName: 'Home',
-        label: 'Panorama'
+        icon: 'calendar-outline',
+        routeName: 'MonthlyBalance',
+        label: 'Balanço Mensal'
     },
     {
         icon: 'swap-horizontal-outline',
@@ -16,7 +16,7 @@ export default [
     },
     {
         icon: 'cash-outline',
-        routeName: 'Home',
+        routeName: 'FutureProfits',
         label: 'Receitas Futuras'
     },
     {
@@ -31,7 +31,7 @@ export default [
     },
     {
         icon: 'settings-outline',
-        routeName: 'Home',
+        routeName: 'Settings',
         label: 'Configurações'
     }
 ]
